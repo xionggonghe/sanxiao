@@ -22,6 +22,7 @@
 #include "OLED_Screen.h"
 #include "dht11.h"
 #include "lora_app.h"
+#include "stdio.h"
 
 /*   全局变量定义  */
 unsigned int Heart_Pack=0;  //用于定时器TIM1自加计数，用于满足设定自加数值时发送EDP心跳包的标志位
@@ -30,7 +31,9 @@ u8  Contral_flag=0;  //用于存贮控制指令  判断进行什么操作
 u8  display[1025];
 u8  SendData[100];
 u8  temperature;  	    
-u8  humidity;  
+u8  humidity; 
+u8  teststring=0; 
+char receiver[120]="hello";
 char EDPFlag[3];
 /*  标志位数组
 0：数据流选择位    'T':温度   'H':湿度
@@ -140,22 +143,23 @@ int main(void)
 				/*用strstr函数来判断操作指令是否匹配 对该函数不了解的朋友自行百度吧*/	 
 				 if(strstr((const char*)Message_Buf,"open"))    //判断到操作指令为OPEN 
 				 {
-	//					LED_ON;   //打开LED
+						LED_ON;   //打开LED
 						OneNet_SendData(1);  //向平台发数据1
 						delay_ms(20);     //延迟保护 防止频繁发数据，容易断开与平台连接
-					 GPIO_SetBits(GPIOB,GPIO_Pin_5);
+						GPIO_SetBits(GPIOB,GPIO_Pin_5);
 						memset(Message_Buf, 0, sizeof(Message_Buf));    //执行完指令 清空指令存贮空间 防止继续执行该指令
 				 }
 				
 				 if(strstr((const char*)Message_Buf,"close"))   //判断到操作指令为CLOSE 
 				 {
-	//					LED_OFF; //关闭LED
+						LED_OFF; //关闭LED
 						OneNet_SendData(0);  //向平台发数据0
 						delay_ms(20);   //延迟
-					 GPIO_ResetBits(GPIOB,GPIO_Pin_5);
+						GPIO_ResetBits(GPIOB,GPIO_Pin_5);
 						memset(Message_Buf, 0, sizeof(Message_Buf));    //执行完指令 清空指令存贮空间 防止继续执行该指令
 				 }
 				  Lrun();
+				 
 				 DHT11_Read_Data(&temperature,&humidity);
 				 //				 temperature = LorafFlag[0];
 //				 humidity = LorafFlag[1];
@@ -163,6 +167,9 @@ int main(void)
 				 OneNet_SendData(temperature);
 				 EDPFlag[0]='H';
 				 OneNet_SendData(humidity);
+				 EDPFlag[0]='M';
+				 sprintf(receiver,"Num.%d  version",teststring++);
+				 OneNet_SendStringData(receiver);
 				 PutChar_H16W8(1,USART_RX_STA+'0',48, 0);
 				ScreenRefresh();
 			 }

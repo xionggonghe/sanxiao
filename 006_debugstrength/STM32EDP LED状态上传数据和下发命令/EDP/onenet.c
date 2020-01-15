@@ -144,3 +144,70 @@ void OneNet_SendData(int data)
 	}
 	
 }
+
+
+unsigned char OneNet_FillStringBuf(char *buf,char *data)
+{
+	char text[124];
+	
+	memset(text, 0, sizeof(text));
+	
+	strcpy(buf, "#@");
+	
+	memset(text, 0, sizeof(text));
+	
+	switch(EDPFlag[0])
+	{
+		case 'M':sprintf(text, "receiver#%s", data);break;
+		default:break;
+	}
+
+	strcat(buf, text);
+	
+//	strcat(buf, "}");
+	memset(text, 0, sizeof(text));
+	return strlen(buf);
+
+}
+
+
+
+void OneNet_SendStringData(char * StringData)
+{
+	
+	EDP_PACKET_STRUCTURE edpPacket = {NULL, 0, 0, 0};												//协议包
+	
+	char buf[120];
+	
+	short body_len = 0, i = 0;
+
+	memset(buf, 0, sizeof(buf));
+	memset(Rx_Buff, 0, sizeof(Rx_Buff));
+	Rx_count=0;
+	body_len = OneNet_FillStringBuf(buf,StringData);																	//获取当前需要发送的数据流的总长度
+	
+	if(body_len)
+	{
+		if(EDP_PacketSaveData(DEVID, body_len, NULL, kTypeString, &edpPacket) == 0)	//封包
+		{
+			for(; i < body_len; i++)
+				edpPacket._data[edpPacket._len++] = buf[i];
+			
+			ESP8266_SendData(edpPacket._data, edpPacket._len);										//上传数据到平台
+			
+			EDP_DeleteBuffer(&edpPacket);															//删包	
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+

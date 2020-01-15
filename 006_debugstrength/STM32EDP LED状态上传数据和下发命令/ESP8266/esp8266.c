@@ -54,10 +54,10 @@ void ESP8266_GPIO_Init(void)
 		GPIO_SetBits(GPIOG,GPIO_Pin_13); 
 
 		GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;               //设置推挽输出模式
-		GPIO_InitStructure.GPIO_Pin=GPIO_Pin_14;                      //初始化RST引脚 拉高
+		GPIO_InitStructure.GPIO_Pin=GPIO_Pin_12;                      //初始化RST引脚 拉高
 		GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;              //设置时钟
 		GPIO_Init(GPIOG,&GPIO_InitStructure);   
-		GPIO_SetBits(GPIOG,GPIO_Pin_14); 
+		GPIO_SetBits(GPIOG,GPIO_Pin_12); 
   
 }
 
@@ -68,9 +68,9 @@ void ESP8266Mode_init(void)
 	  AT_Mode = 1;  //进入发AT指令模式
 	  
 /****wifi模块与OneNet平台数据对接配置 */
-	GPIO_ResetBits(GPIOG,GPIO_Pin_14);
+	GPIO_ResetBits(GPIOG,GPIO_Pin_12);
 	delay_ms(80);
-	GPIO_SetBits(GPIOG,GPIO_Pin_14);
+	GPIO_SetBits(GPIOG,GPIO_Pin_12);
 	
 	
 	PutStr_H16W8(1,"                 ",0, 0); 
