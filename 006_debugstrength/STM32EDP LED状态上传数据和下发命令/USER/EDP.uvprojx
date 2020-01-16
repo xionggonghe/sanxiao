@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Common;..\CORE;..\ESP8266;..\STM32\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\EDP;..\TIM;..\HARDWARE\LED;..\SYSTEM\delay;..\HARDWARE\oled;..\HARDWARE\font;..\HARDWARE\OLED_Screen;..\HARDWARE\dht11;..\HARDWARE\lcd;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\LORA</IncludePath>
+              <IncludePath>..\Common;..\CORE;..\ESP8266;..\STM32\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\EDP;..\TIM;..\HARDWARE\LED;..\SYSTEM\delay;..\HARDWARE\oled;..\HARDWARE\font;..\HARDWARE\OLED_Screen;..\HARDWARE\dht11;..\HARDWARE\lcd;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\LORA;..\USER</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -551,6 +551,11 @@
               <FileName>onenet.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\EDP\onenet.c</FilePath>
+            </File>
+            <File>
+              <FileName>codeGraph.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\codeGraph.h</FilePath>
             </File>
           </Files>
         </Group>

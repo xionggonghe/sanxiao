@@ -47,3 +47,4 @@
 .\objects\main.o: ..\HARDWARE\dht11\dht11.h
 .\objects\main.o: ..\LORA\lora_app.h
 .\objects\main.o: ..\LORA\lora_cfg.h
+.\objects\main.o: codeGraph.h
