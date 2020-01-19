@@ -15,6 +15,7 @@
 ".\objects\dht11.o"
 ".\objects\usart3.o"
 ".\objects\timer.o"
+".\objects\ds1302.o"
 ".\objects\delay.o"
 ".\objects\sys.o"
 ".\objects\usart.o"

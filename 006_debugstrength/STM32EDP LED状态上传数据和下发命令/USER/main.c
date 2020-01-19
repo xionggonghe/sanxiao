@@ -1,11 +1,10 @@
 
 /********************************************************/
 /*
-*   功能：  基于STM32单片机与OneNet平台的LED灯控制实验  	
-*   日期：  2018.05.18                                 
-*   来源：  广东海洋大学																
-*   作者：  智能控制团队Allen                           
-*   PS：由于某些代码是自己敲的 可能不规范 或者有些瑕疵 大家凑合着看吧  
+*   功能：  基于STM32单片机与OneNet平台的控制系统实验  	
+*   日期：                              
+*   来源： 													
+*   作者：                          
 *  说明：该程序存在一个BUG 配置完AT指令后 延迟函数delay_ms 就有点失灵了大概延迟时间会缩小10倍 我找不到原因。
 */
 /********************************************************/
@@ -24,6 +23,7 @@
 #include "lora_app.h"
 #include "stdio.h"
 #include "codeGraph.h"
+#include "ds1302.h"
 
 /*   全局变量定义  */
 unsigned int Heart_Pack=0;  //用于定时器TIM1自加计数，用于满足设定自加数值时发送EDP心跳包的标志位
@@ -37,6 +37,7 @@ u8  teststring=0;
 u8  showflag=0;
 char receiver[120]="hello";
 char EDPFlag[3];
+
 /*  标志位数组
 0：数据流选择位    'T':温度   'H':湿度
 
@@ -49,13 +50,13 @@ u8 LorafFlag[3];
 3:
 */
 
-
-
 void System_Init()
 {
 /*  基本功能初始化   */
 	
 		delay_init();					//延时初始化
+		DS1302_Init();
+		DS1302_WriteTime();
 		uart_init(115200);    //打开串口1，与Wifi模块通信
 		LED_Init();           //LED灯初始化
         ScreenInit( (void*)display);
@@ -86,19 +87,15 @@ void Connect_OneNet(void)
 }
 
 
-
 int main(void)
 {	 
 	char x=0;
+	char nowtime[3]={10,20,23};
     EDP_PACKET_STRUCTURE edpPacket = {NULL, 0, 0, 0};   //定义一个结构体变量   供心跳包装载数据用
-		
     System_Init();       //初始化各模块
-
     Connect_OneNet();    //接入OneNet平台
 	PutStr_H16W8(1,"serve_ok",48, 0);  
 	ScreenRefresh(); 
-	delay_ms(1000);
-	delay_ms(1000);
 	delay_ms(1000);
 	PutStr_H16W8(1,"                 ",0, 0); 
 	PutStr_H16W8(1,"                 ",16, 0);
@@ -107,64 +104,62 @@ int main(void)
 	PutStr_H16W8(1,"                 ",64, 0);
 	ScreenRefresh();
 	
-		while(1)	             //while循环执行各种功能 
-		{  		
-			if(1)
-			{
-				/*  定时发送心跳包  */			
-				if(Heart_Pack==1000)              //每隔5秒发一次心跳包   OneNet平台默认四分钟无数据交换就会断开与设备的连接 发心跳包可以保证连接。
-				{
-					EDP_PacketPing(&edpPacket);     //装载并发送心跳包
-					Heart_Pack=0;
-				} 
-				if(USART_RX_STA==1)
-				{
-					/*用strstr函数来判断操作指令是否匹配 对该函数不了解的朋友自行百度吧*/	 
-					 if(strstr((const char*)Message_Buf,"open"))    //判断到操作指令为OPEN 
-					 {
-							LED_ON;   //打开LED
-							OneNet_SendData(1);  //向平台发数据1
-							delay_ms(20);     //延迟保护 防止频繁发数据，容易断开与平台连接
-					 }
-					
-					 if(strstr((const char*)Message_Buf,"close"))   //判断到操作指令为CLOSE 
-					 {
-							LED_OFF; //关闭LED
-							OneNet_SendData(0);  //向平台发数据0
-							delay_ms(20);   //延迟
-					 }
-					 if(strstr((const char*)Message_Buf,"test"))   //测试通信用
-					 {
-						 LED_ON;
-						 sprintf(receiver,"%s",ZW_commandReceive);
-						 strcat(receiver,Message_Buf); 					
-						 OneNet_SendData(0);  //向平台发数据0
-						 OneNet_SendStringData(receiver);	
-						 delay_ms(20);   //延迟
-						 showflag=6;
-						 LED_OFF; 
-					 }
-					 delay_ms(300);
-					 memset(Message_Buf, 0, sizeof(Message_Buf)); 
-					 USART_RX_STA=0;
-				}
-				 Lrun();
-				 DHT11_Read_Data(&temperature,&humidity);
-//				 temperature = LorafFlag[0];
-//				 humidity = LorafFlag[1];
-				 EDPFlag[0]='T';
-				 OneNet_SendData(temperature);
-				 EDPFlag[0]='H';
-				 OneNet_SendData(humidity);
-				 EDPFlag[0]='M';
-				 if(showflag>0) showflag--;	
-				 else	 sprintf(receiver,"%s",ZW_linkOk);
-				 OneNet_SendStringData(receiver);
-				 PutChar_H16W8(1,USART_RX_STA+'0',48, 0);
-				ScreenRefresh();
+	while(1)	             //while循环执行各种功能 
+	{  		
+		/*  定时发送心跳包  */			
+		if(Heart_Pack==1000)              //每隔5秒发一次心跳包   OneNet平台默认四分钟无数据交换就会断开与设备的连接 发心跳包可以保证连接。
+		{
+			EDP_PacketPing(&edpPacket);     //装载并发送心跳包
+			Heart_Pack=0;
+		} 
+		if(USART_RX_STA==1)
+		{
+			 if(strstr((const char*)Message_Buf,"open"))    //判断到操作指令为OPEN 
+			 {
+					LED_ON;   //打开LED
+					OneNet_SendData(1);  //向平台发数据1
+					delay_ms(20);     //延迟保护 防止频繁发数据，容易断开与平台连接
 			 }
-			 delay_ms(50);     //延迟保护 防止频繁发数据，容易断开与平台连接
-		}	
+			 if(strstr((const char*)Message_Buf,"close"))   //判断到操作指令为CLOSE 
+			 {
+					LED_OFF; //关闭LED
+					OneNet_SendData(0);  //向平台发数据0
+					delay_ms(20);   //延迟
+			 }
+			 if(strstr((const char*)Message_Buf,"test"))   //测试通信用
+			 {
+				 LED_ON;
+				 sprintf(receiver,"%s",ZW_commandReceive);
+				 strcat(receiver,Message_Buf); 					
+				 OneNet_SendData(0);  //向平台发数据0
+				 OneNet_SendStringData(receiver);	
+				 delay_ms(20);   //延迟
+				 showflag=6;
+				 LED_OFF; 
+			 }
+			 memset(Message_Buf, 0, sizeof(Message_Buf)); 
+			 USART_RX_STA=0;
+		}
+		DS1302_ReadTime();
+		DS1302_GetTime();
+		PutStr_H16W8(1,t,1,1);
+		ScreenRefresh();
+		Lrun();
+		DHT11_Read_Data(&temperature,&humidity);
+			temperature = LorafFlag[0];
+			humidity = LorafFlag[1];
+		EDPFlag[0]='T';
+		OneNet_SendData(temperature);
+		EDPFlag[0]='H';
+		OneNet_SendData(humidity);
+		EDPFlag[0]='M';
+		
+		if(showflag>0) showflag--;	
+		else	 sprintf(receiver,"%s",ZW_linkOk);    //选择上传文字信息
+		
+		OneNet_SendStringData(receiver);
+		delay_ms(50);     //延迟保护 防止频繁发数据，容易断开与平台连接
+	}	
  }
 
 
