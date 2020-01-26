@@ -72,11 +72,6 @@ void ESP8266Mode_init(void)
 	delay_ms(80);
 	GPIO_SetBits(GPIOG,GPIO_Pin_12);
 	
-	
-	PutStr_H16W8(1,"                 ",0, 0); 
-	PutStr_H16W8(1,"                 ",16, 0); 
-	ScreenRefresh();
-	
     SendCmd(AT,"OK", Delay);		//模块有效性检查
 	PutStr_H16W8(1,"AT ok",0, 0);  
 	ScreenRefresh();
