@@ -1,4 +1,5 @@
 #include "DS1302.h"
+#include "calTime.h"
 
 // Write Register Address
 #define DS1302_SEC				0x80
@@ -37,7 +38,7 @@ struct TIMEData TimeData;
 #define DS1302_CLKBURST_ADDR      0xbe
  
 //初始时间定义
-u8 time_buf[8] = {0x20,0x19,0x04,0x12,0x21,0x3412,0x24,0x06};//初始时间2019年4月12号15点07分00秒 星期五
+u8 time_buf[8] = {0x20,0x19,0x04,0x12,0x01,0x00,0x00,0x06};//初始时间2019年4月12号15点07分00秒 星期五
 u8 readtime[15];//当前时间
 u8 sec_buf=0;  //秒缓存
 u8 sec_flag=0; //秒标志位
@@ -139,7 +140,7 @@ void DS1302_ReadTime(void)
 	time_buf[4]=DS1302_ReadByte(DS1302_HOUR_ADDR);          //时 
 	time_buf[5]=DS1302_ReadByte(DS1302_MIN_ADDR);           //分 
 	time_buf[6]=(DS1302_ReadByte(DS1302_SEC_ADDR))&0x7f;    //秒，屏蔽秒的第7位，避免超出59
-	time_buf[7]=DS1302_ReadByte(DS1302_WEEK_ADDR);          //周 	
+//	time_buf[7]=DS1302_ReadByte(DS1302_WEEK_ADDR);          //周 	
 }
  
 //主函数
@@ -160,6 +161,8 @@ void DS1302_GetTime()
     TimeData.second=(time_buf[6]>>4)*10+(time_buf[6]&0x0F); //计算秒钟
 	t[6]=(time_buf[6]>>4)+'0';
 	t[7]=(time_buf[6]&0x0F)+'0';
-    TimeData.week=(time_buf[7]&0x0F);                       //计算星期
-  //printf("时间:%d-%d-%d %d:%d:%d %d \n",TimeData.year,TimeData.month,TimeData.day,TimeData.hour,TimeData.minute,TimeData.second,TimeData.week);																												
+//    TimeData.week=(time_buf[7]&0x0F);                       //计算星期
+	realtime[0]=TimeData.hour;
+	realtime[1]=TimeData.minute;
+	realtime[2]=TimeData.second;																	
 }

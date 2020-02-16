@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Common;..\CORE;..\ESP8266;..\STM32\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\EDP;..\TIM;..\HARDWARE\LED;..\SYSTEM\delay;..\HARDWARE\oled;..\HARDWARE\font;..\HARDWARE\OLED_Screen;..\HARDWARE\dht11;..\HARDWARE\lcd;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\LORA;..\USER;..\HARDWARE\ds1302</IncludePath>
+              <IncludePath>..\Common;..\CORE;..\ESP8266;..\STM32\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\EDP;..\TIM;..\HARDWARE\LED;..\SYSTEM\delay;..\HARDWARE\oled;..\HARDWARE\font;..\HARDWARE\OLED_Screen;..\HARDWARE\dht11;..\HARDWARE\lcd;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\LORA;..\USER;..\HARDWARE\ds1302;..\HARDWARE\findFun;..\HARDWARE\calTime</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -517,6 +517,16 @@
               <FileType>5</FileType>
               <FilePath>..\HARDWARE\ds1302\DS1302.h</FilePath>
             </File>
+            <File>
+              <FileName>findFun.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\findFun\findFun.c</FilePath>
+            </File>
+            <File>
+              <FileName>calTime.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\calTime\calTime.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -561,11 +571,6 @@
               <FileName>onenet.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\EDP\onenet.c</FilePath>
-            </File>
-            <File>
-              <FileName>codeGraph.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\codeGraph.h</FilePath>
             </File>
           </Files>
         </Group>

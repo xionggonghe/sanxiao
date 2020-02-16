@@ -47,5 +47,6 @@
 .\objects\main.o: ..\HARDWARE\dht11\dht11.h
 .\objects\main.o: ..\LORA\lora_app.h
 .\objects\main.o: ..\LORA\lora_cfg.h
-.\objects\main.o: codeGraph.h
 .\objects\main.o: ..\HARDWARE\ds1302\ds1302.h
+.\objects\main.o: ..\HARDWARE\findFun\findFun.h
+.\objects\main.o: ..\HARDWARE\calTime\calTime.h

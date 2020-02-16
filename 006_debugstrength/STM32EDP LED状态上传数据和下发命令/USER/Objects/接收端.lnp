@@ -16,6 +16,8 @@
 ".\objects\usart3.o"
 ".\objects\timer.o"
 ".\objects\ds1302.o"
+".\objects\findfun.o"
+".\objects\caltime.o"
 ".\objects\delay.o"
 ".\objects\sys.o"
 ".\objects\usart.o"

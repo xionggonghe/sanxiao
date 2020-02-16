@@ -21,8 +21,8 @@ Target DLL:      Segger\JL2CM3.dll V2.99.13.0
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Users\Lenovo\Desktop\三小\sanxiao\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\EDP.uvprojx
-Project File Date:  01/26/2020
+C:\Users\Lenovo\Desktop\三小_before\副本2\三小 - 副本1\sanxiao\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\EDP.uvprojx
+Project File Date:  02/09/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin'
@@ -38,18 +38,36 @@ compiling main.c...
   void DS1302_WriteTime();
 ..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
   void DS1302_GetTime();
-main.c(150): warning:  #177-D: variable "x" was declared but never referenced
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+main.c(297): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+                PutStr_H16W8(1,Dtime,16, 0);
+main.c(346): warning:  #177-D: variable "x" was declared but never referenced
         char x=0;
-main.c(151): warning:  #177-D: variable "nowtime" was declared but never referenced
+main.c(347): warning:  #177-D: variable "nowtime" was declared but never referenced
         char nowtime[3]={10,20,23};
-main.c: 7 warnings, 0 errors
+main.c: 10 warnings, 0 errors
+compiling calTime.c...
+..\HARDWARE\ds1302\DS1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
+  void DS1302_Init();
+..\HARDWARE\ds1302\DS1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
+  void DS1302_WriteTime();
+..\HARDWARE\ds1302\DS1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
+  void DS1302_GetTime();
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+..\HARDWARE\calTime\calTime.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=15872 RO-data=2448 RW-data=440 ZI-data=4552  
+Program Size: Code=21036 RO-data=2596 RW-data=416 ZI-data=4672  
 FromELF: creating hex file...
-".\Objects\接收端.axf" - 0 Error(s), 7 Warning(s).
+".\Objects\接收端.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Lenovo\Desktop\三小\sanxiao\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\RTE
+  C:\Users\Lenovo\Desktop\三小_before\副本2\三小 - 副本1\sanxiao\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\RTE
   C:\Users\Lenovo\Documents\keil5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
 
 <h2>Collection of Component Files used:</h2>

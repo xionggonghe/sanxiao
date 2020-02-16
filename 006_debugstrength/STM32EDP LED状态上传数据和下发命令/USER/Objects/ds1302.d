@@ -36,5 +36,6 @@
 .\objects\ds1302.o: ..\EDP\Common.h
 .\objects\ds1302.o: ..\ESP8266\esp8266.h
 .\objects\ds1302.o: C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\ds1302.o: ..\HARDWARE\calTime\calTime.h
 .\objects\ds1302.o: ..\SYSTEM\usart\usart.h
 .\objects\ds1302.o: C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin\..\include\stdio.h
