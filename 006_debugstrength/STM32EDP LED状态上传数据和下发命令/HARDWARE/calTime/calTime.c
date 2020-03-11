@@ -1,6 +1,6 @@
 #include "calTime.h"
-#include "OLED_Screen.h"
-#include "DS1302.h"
+#include "Head.h"
+
 
 unsigned short formtime;
 unsigned short downtime[4]={0};
@@ -71,7 +71,7 @@ void computertime()
 			{
 				flagArray[5]=0;
 				flagArray[6]=1;
-	//            relayexe();
+	            relayexe();
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 #ifndef __calTime_H
 #define __calTime_H
-#include "sys.h"   
-#include "DS1302.h"
+#include "Head.h"
+
 
 extern unsigned short formtime;
 extern unsigned short downtime[4];

@@ -21,12 +21,12 @@ Target DLL:      Segger\JL2CM3.dll V2.99.13.0
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Users\Lenovo\Desktop\三小_before\副本2\三小 - 副本1\sanxiao\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\EDP.uvprojx
-Project File Date:  02/09/2020
+C:\Users\Lenovo\Desktop\sanxiao - 副本\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\EDP.uvprojx
+Project File Date:  02/18/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin'
-Build target '接收端'
+Rebuild target '接收端'
 compiling main.c...
 ..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
   extern void Lrend();
@@ -38,36 +38,258 @@ compiling main.c...
   void DS1302_WriteTime();
 ..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
   void DS1302_GetTime();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
 ..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
   void computertime();
 ..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
   void downtimeshow();
-main.c(297): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
-                PutStr_H16W8(1,Dtime,16, 0);
-main.c(346): warning:  #177-D: variable "x" was declared but never referenced
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(158): warning:  #177-D: variable "x" was declared but never referenced
         char x=0;
-main.c(347): warning:  #177-D: variable "nowtime" was declared but never referenced
+main.c(159): warning:  #177-D: variable "nowtime" was declared but never referenced
         char nowtime[3]={10,20,23};
-main.c: 10 warnings, 0 errors
-compiling calTime.c...
+main.c: 14 warnings, 0 errors
+compiling system_stm32f10x.c...
+compiling stm32f10x_it.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_hd.s...
+compiling misc.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_fsmc.c...
+compiling led.c...
+compiling dht11.c...
+compiling usart3.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\HARDWARE\USART3\usart3.c(39): warning:  #177-D: variable "x" was declared but never referenced
+        char x='0';
+..\HARDWARE\USART3\usart3.c: 3 warnings, 0 errors
+compiling timer.c...
+compiling DS1302.c...
 ..\HARDWARE\ds1302\DS1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
   void DS1302_Init();
 ..\HARDWARE\ds1302\DS1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
   void DS1302_WriteTime();
 ..\HARDWARE\ds1302\DS1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
   void DS1302_GetTime();
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
 ..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
   void computertime();
 ..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
   void downtimeshow();
-..\HARDWARE\calTime\calTime.c: 5 warnings, 0 errors
+..\HARDWARE\ds1302\DS1302.c(168): warning:  #1-D: last line of file ends without a newline
+  }
+..\HARDWARE\ds1302\DS1302.c: 13 warnings, 0 errors
+compiling findFun.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\HARDWARE\ds1302\ds1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
+  void DS1302_Init();
+..\HARDWARE\ds1302\ds1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
+  void DS1302_WriteTime();
+..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
+  void DS1302_GetTime();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\findFun\findFun.c(175): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+                PutStr_H16W8(1,Dtime,16, 0);
+..\HARDWARE\findFun\findFun.c: 13 warnings, 0 errors
+compiling calTime.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\HARDWARE\ds1302\ds1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
+  void DS1302_Init();
+..\HARDWARE\ds1302\ds1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
+  void DS1302_WriteTime();
+..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
+  void DS1302_GetTime();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+..\HARDWARE\calTime\calTime.c: 12 warnings, 0 errors
+compiling Module.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\HARDWARE\ds1302\ds1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
+  void DS1302_Init();
+..\HARDWARE\ds1302\ds1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
+  void DS1302_WriteTime();
+..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
+  void DS1302_GetTime();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\module\Module.c: 12 warnings, 0 errors
+compiling exe.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\HARDWARE\ds1302\ds1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
+  void DS1302_Init();
+..\HARDWARE\ds1302\ds1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
+  void DS1302_WriteTime();
+..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
+  void DS1302_GetTime();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\exe\exe.c: 13 warnings, 0 errors
+compiling delay.c...
+compiling sys.c...
+compiling usart.c...
+compiling esp8266.c...
+compiling EdpKit.c...
+compiling onenet.c...
+compiling Tim.c...
+compiling Font.c...
+compiling OLED_Screen.c...
+compiling Pictures.c...
+compiling lora_app.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\HARDWARE\ds1302\ds1302.h(27): warning:  #1295-D: Deprecated declaration DS1302_Init - give arg types
+  void DS1302_Init();
+..\HARDWARE\ds1302\ds1302.h(30): warning:  #1295-D: Deprecated declaration DS1302_WriteTime - give arg types
+  void DS1302_WriteTime();
+..\HARDWARE\ds1302\ds1302.h(32): warning:  #1295-D: Deprecated declaration DS1302_GetTime - give arg types
+  void DS1302_GetTime();
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\calTime\calTime.h(16): warning:  #1295-D: Deprecated declaration computertime - give arg types
+  void computertime();
+..\HARDWARE\calTime\calTime.h(17): warning:  #1295-D: Deprecated declaration downtimeshow - give arg types
+  void downtimeshow();
+..\HARDWARE\module\Module.h(6): warning:  #1295-D: Deprecated declaration relayexe - give arg types
+  extern void relayexe();
+..\HARDWARE\exe\Exe.h(6): warning:  #1295-D: Deprecated declaration timeexecute - give arg types
+  extern void timeexecute();
+..\HARDWARE\exe\Exe.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\USER\Head.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\LORA\lora_app.c(211): warning:  #177-D: variable "num" was declared but never referenced
+        static u8 num=0;
+..\LORA\lora_app.c(270): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+                if(strstr(USART3_RX_BUF,"on"))
+..\LORA\lora_app.c(274): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+                if(strstr(USART3_RX_BUF,"off"))
+..\LORA\lora_app.c(287): warning:  #177-D: variable "key" was declared but never referenced
+        u8 key=0;
+..\LORA\lora_app.c(288): warning:  #177-D: variable "t" was declared but never referenced
+        u8 t=0;
+..\LORA\lora_app.c(310): warning:  #177-D: variable "key" was declared but never referenced
+        u8 key=0;
+..\LORA\lora_app.c(311): warning:  #177-D: variable "netpro" was declared but never referenced
+        u8 netpro=0;
+..\LORA\lora_app.c(349): warning:  #177-D: variable "num" was declared but never referenced
+        static u8 num=0;
+..\LORA\lora_app.c(399): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+                findstring=strstr(USART3_RX_BUF,"F");
+..\LORA\lora_app.c(399): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "unsigned char *"
+                findstring=strstr(USART3_RX_BUF,"F");
+..\LORA\lora_app.c(403): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+                if(strstr(USART3_RX_BUF,"on"))
+..\LORA\lora_app.c(407): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+                if(strstr(USART3_RX_BUF,"off"))
+..\LORA\lora_app.c(384): warning:  #177-D: variable "i" was declared but never referenced
+        u16 i=0;
+..\LORA\lora_app.c: 25 warnings, 0 errors
+compiling lora_ui.c...
+..\LORA\lora_app.h(38): warning:  #1295-D: Deprecated declaration Lrend - give arg types
+  extern void Lrend();
+..\LORA\lora_app.h(39): warning:  #1295-D: Deprecated declaration Lrun - give arg types
+  extern void Lrun();
+..\LORA\lora_ui.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=21036 RO-data=2596 RW-data=416 ZI-data=4672  
+Program Size: Code=21460 RO-data=2596 RW-data=416 ZI-data=4672  
 FromELF: creating hex file...
-".\Objects\接收端.axf" - 0 Error(s), 15 Warning(s).
+".\Objects\接收端.axf" - 0 Error(s), 107 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Lenovo\Desktop\三小_before\副本2\三小 - 副本1\sanxiao\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\RTE
+  C:\Users\Lenovo\Desktop\sanxiao - 副本\006_debugstrength\STM32EDP LED状态上传数据和下发命令\USER\RTE
   C:\Users\Lenovo\Documents\keil5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
 
 <h2>Collection of Component Files used:</h2>

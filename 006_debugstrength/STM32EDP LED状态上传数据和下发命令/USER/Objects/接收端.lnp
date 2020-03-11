@@ -18,6 +18,8 @@
 ".\objects\ds1302.o"
 ".\objects\findfun.o"
 ".\objects\caltime.o"
+".\objects\module.o"
+".\objects\exe.o"
 ".\objects\delay.o"
 ".\objects\sys.o"
 ".\objects\usart.o"

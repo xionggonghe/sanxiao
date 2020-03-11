@@ -1,4 +1,6 @@
 .\objects\main.o: main.c
+.\objects\main.o: ..\EDP\onenet.h
+.\objects\main.o: Head.h
 .\objects\main.o: stm32f10x.h
 .\objects\main.o: ..\CORE\core_cm3.h
 .\objects\main.o: C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -38,7 +40,6 @@
 .\objects\main.o: ..\SYSTEM\usart\usart.h
 .\objects\main.o: C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: ..\HARDWARE\LED\led.h
-.\objects\main.o: ..\EDP\onenet.h
 .\objects\main.o: C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: ..\TIM\Tim.h
 .\objects\main.o: ..\HARDWARE\OLED_Screen\OLED_Screen.h
@@ -49,4 +50,8 @@
 .\objects\main.o: ..\LORA\lora_cfg.h
 .\objects\main.o: ..\HARDWARE\ds1302\ds1302.h
 .\objects\main.o: ..\HARDWARE\findFun\findFun.h
+.\objects\main.o: ..\USER\Head.h
 .\objects\main.o: ..\HARDWARE\calTime\calTime.h
+.\objects\main.o: ..\HARDWARE\module\Module.h
+.\objects\main.o: ..\HARDWARE\exe\Exe.h
+.\objects\main.o: C:\Users\Lenovo\Documents\keil5\ARM\ARMCC\Bin\..\include\math.h

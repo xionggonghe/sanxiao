@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Common;..\CORE;..\ESP8266;..\STM32\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\EDP;..\TIM;..\HARDWARE\LED;..\SYSTEM\delay;..\HARDWARE\oled;..\HARDWARE\font;..\HARDWARE\OLED_Screen;..\HARDWARE\dht11;..\HARDWARE\lcd;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\LORA;..\USER;..\HARDWARE\ds1302;..\HARDWARE\findFun;..\HARDWARE\calTime</IncludePath>
+              <IncludePath>..\Common;..\CORE;..\ESP8266;..\STM32\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\EDP;..\TIM;..\HARDWARE\LED;..\SYSTEM\delay;..\HARDWARE\oled;..\HARDWARE\font;..\HARDWARE\OLED_Screen;..\HARDWARE\dht11;..\HARDWARE\lcd;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\LORA;..\USER;..\HARDWARE\ds1302;..\HARDWARE\findFun;..\HARDWARE\calTime;..\HARDWARE\module;..\HARDWARE\exe</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -526,6 +526,16 @@
               <FileName>calTime.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\calTime\calTime.c</FilePath>
+            </File>
+            <File>
+              <FileName>Module.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\module\Module.c</FilePath>
+            </File>
+            <File>
+              <FileName>exe.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\exe\exe.c</FilePath>
             </File>
           </Files>
         </Group>

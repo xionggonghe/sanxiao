@@ -1,12 +1,8 @@
 #include "lora_app.h"
 #include "usart3.h"
-#include "string.h"
-#include "led.h"
-#include "delay.h"
-#include "lcd.h"
-#include "stdio.h"
 #include "lora_ui.h"
-#include "OLED_Screen.h"
+#include "Head.h"
+
 
 #define u16 unsigned short
 #define u8 unsigned char
